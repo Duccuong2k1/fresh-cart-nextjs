@@ -6,3 +6,8 @@
 .product-item__option {
   display: none;
 }
+
+.slide-active {
+  border: 2px solid green;
+  border-radius: 10px;
+}

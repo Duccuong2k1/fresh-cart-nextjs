@@ -1,4 +1,5 @@
 import React from 'react'
+import { ToastContainer } from 'react-toastify'
 import { HomePageAds } from './components/home-page-ads'
 import { HomePageBestSell } from './components/home-page-best-sell'
 import { HomePageCategories } from './components/home-page-categories'

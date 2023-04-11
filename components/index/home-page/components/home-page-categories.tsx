@@ -55,7 +55,7 @@ function CategoryItemSlide({ category, ...props }: {
 
       <div className='flex flex-col items-center justify-center p-4 transition-all delay-100 border border-gray-200 rounded-md hover:border-green-500 hover:shadow-md'>
         <img src={category?.img} alt={category.title} className="object-cover" />
-        <div className='mt-4 font-medium capitalize hover:text-green-700'>{category.title}</div>
+        <div className='mt-4 font-medium capitalize hover:text-green-700 text-ellipsis'>{category.title}</div>
       </div>
     </Link>
   )

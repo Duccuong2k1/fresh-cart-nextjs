@@ -17,7 +17,11 @@ export function HomePageAds({ }: Props) {
             >
                 <div className="my-3 text-2xl font-semibold capitalize">Fruits & vegetables</div>
                 <div className="my-2 text-gray-500 capitalize">Get upto 30% off</div>
-                <Button text="shop now" />
+                <Button text="shop now"
+                    className={"bg-gray-900 hover:bg-gray-700"}
+                    href="/shop"
+
+                />
             </div>
             <div
                 className="w-full h-auto px-8 py-10 rounded-md"
@@ -30,7 +34,11 @@ export function HomePageAds({ }: Props) {
             >
                 <div className="my-3 text-2xl font-semibold capitalize">freshly baked buns</div>
                 <div className="my-2 text-gray-500 capitalize">Get upto 25% off</div>
-                <Button text="shop now" />
+                <Button text="shop now"
+                    className={"bg-gray-900 hover:bg-gray-700"}
+                    href="/shop"
+
+                />
             </div>
         </div>
     );

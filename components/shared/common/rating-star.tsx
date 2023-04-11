@@ -27,7 +27,7 @@ export function RatingStar({ numberStar, buyAmount }: Props) {
                 </span>
             </div>
             <span className="text-sm text-gray-500">{numberStar}</span>
-            <span className="text-sm text-gray-500">({buyAmount})</span>
+            {buyAmount && <span className="text-sm text-gray-500">({buyAmount})</span>}
         </div>
     )
 }

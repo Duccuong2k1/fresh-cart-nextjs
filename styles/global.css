@@ -1,6 +1,7 @@
 @import "swiper/swiper-bundle.min.css";
 @import "swiper/css";
 @import "swiper/css/pagination";
+@import "react-toastify/dist/ReactToastify.css";
 
 :root {
   --color-primary-light: #e6f3e9;

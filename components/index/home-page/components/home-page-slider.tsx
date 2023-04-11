@@ -40,6 +40,7 @@ export function HomePageSlider({ }: Props) {
                                     icon={<HiArrowNarrowRight />}
                                     href="/shop"
                                     iconPosition='end'
+                                    className={"bg-gray-900 hover:bg-gray-700"}
 
                                 />
                             </div>

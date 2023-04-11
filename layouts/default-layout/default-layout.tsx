@@ -28,6 +28,7 @@ function DefaultLayoutContent({ ...props }) {
                 </div>
                 <Footer />
             </div>
+
         </>
     )
 }
