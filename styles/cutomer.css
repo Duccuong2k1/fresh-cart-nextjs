@@ -1,0 +1,8 @@
+.product-item:hover .product-item__option {
+  display: flex;
+  transition: all 1s ease-in;
+}
+
+.product-item__option {
+  display: none;
+}

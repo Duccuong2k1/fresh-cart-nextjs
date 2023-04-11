@@ -1,0 +1,41 @@
+html,
+body {
+  font-family: "Noto Sans", sans-serif;
+}
+
+html {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+.main-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
+
+.no-focus:not(.btn) {
+  outline: none;
+}
+
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:focus {
+  outline: none;
+}
+
+.tippy-box.no-padding .tippy-content {
+  padding: 0 !important;
+}

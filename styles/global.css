@@ -1,0 +1,38 @@
+@import "swiper/swiper-bundle.min.css";
+@import "swiper/css";
+@import "swiper/css/pagination";
+
+:root {
+  --color-primary-light: #e6f3e9;
+  --color-primary: #399c47;
+  --color-primary-dark: #147521;
+  --color-accent-light: #eee;
+  --color-accent: rgb(92, 92, 92);
+  --color-accent-dark: rgb(54, 54, 54);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./base.css";
+@import "./loading.css";
+@import "./cutomer.css";
