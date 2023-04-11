@@ -23,7 +23,7 @@ export function HomePageBestSell({ }: Props) {
                 <div
                     className="px-6 pt-8 bg-no-repeat bg-cover rounded-md"
                     style={{
-                        backgroundImage: "url('/assets/imgs/banner-deal.jpg')",
+                        backgroundImage: 'url("/assets/imgs/banner-deal.jpg")',
                         height: "470px",
                     }}
                 >
@@ -62,7 +62,7 @@ function ProductBestSellItem() {
                 <div className="my-1 text-sm text-gray-500">snack & rice</div>
 
                 <div className="my-1 font-semibold text-gray-800 hover:text-green-600">
-                    Haldiram's Sev Bhujia
+                    Haldirams Sev Bhujia
                 </div>
             </Link>
             <div className="flex items-center justify-between mt-3">
@@ -97,26 +97,25 @@ function ProductBestSellItem() {
     );
 }
 
-
 function TimerProductSell() {
     return (
         <div className="flex flex-row flex-wrap items-center justify-center gap-3">
             <div className="px-4 py-2 text-center border rounded">
-                <div className="font-medium" >2023</div>
-                <div className="text-sm text-gray-500" >Days</div>
+                <div className="font-medium">2023</div>
+                <div className="text-sm text-gray-500">Days</div>
             </div>
             <div className="px-4 py-2 text-center border rounded">
-                <div className="font-medium" >12</div>
-                <div className="text-sm text-gray-500" >Hours</div>
+                <div className="font-medium">12</div>
+                <div className="text-sm text-gray-500">Hours</div>
             </div>
             <div className="px-4 py-2 text-center border rounded">
-                <div className="font-medium" >22</div>
-                <div className="text-sm text-gray-500" >Mins</div>
+                <div className="font-medium">22</div>
+                <div className="text-sm text-gray-500">Mins</div>
             </div>
             <div className="px-4 py-2 text-center border rounded">
-                <div className="font-medium" >12</div>
-                <div className="text-sm text-gray-500" >Sec</div>
+                <div className="font-medium">12</div>
+                <div className="text-sm text-gray-500">Sec</div>
             </div>
         </div>
-    )
+    );
 }

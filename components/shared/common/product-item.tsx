@@ -24,7 +24,7 @@ export function ProductItem() {
                 <div className="my-1 text-sm text-gray-500">snack & rice</div>
 
                 <div className="my-1 font-semibold text-gray-800 hover:text-green-600">
-                    Haldiram's Sev Bhujia
+                    Haldirams Sev Bhujia
                 </div>
             </Link>
             <RatingStar numberStar={3.6} buyAmount={346} />
