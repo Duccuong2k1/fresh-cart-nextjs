@@ -85,7 +85,7 @@ function ProductBestSellItem() {
             />
             <TimerProductSell />
 
-            <div className="absolute flex-row items-center justify-center flex-none gap-1 transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 product-item__option">
+            <div className="absolute flex-row items-center justify-center flex-none gap-1 transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/3 product-item__option">
                 <span className="p-2 bg-white rounded-md shadow-md hover:bg-green-500 hover:text-white"
                     onClick={() => setProduct?.(product)}>
                     <AiOutlineEye />
@@ -103,22 +103,22 @@ function ProductBestSellItem() {
 
 function TimerProductSell() {
     return (
-        <div className="flex flex-row flex-wrap items-center justify-center gap-3">
-            <div className="px-4 py-2 text-center border rounded">
-                <div className="font-medium">2023</div>
-                <div className="text-sm text-gray-500">Days</div>
+        <div className="grid grid-cols-4 gap-3 mt-5">
+            <div className="flex flex-col items-center justify-center py-2 text-center border rounded-md ">
+                <div className="text-sm font-medium">2023</div>
+                <div className="text-xs text-gray-400">Days</div>
             </div>
-            <div className="px-4 py-2 text-center border rounded">
-                <div className="font-medium">12</div>
-                <div className="text-sm text-gray-500">Hours</div>
+            <div className="flex flex-col items-center justify-center py-2 text-center border rounded-md ">
+                <div className="text-sm font-medium">12</div>
+                <div className="text-xs text-gray-400">Hours</div>
             </div>
-            <div className="px-4 py-2 text-center border rounded">
-                <div className="font-medium">22</div>
-                <div className="text-sm text-gray-500">Mins</div>
+            <div className="flex flex-col items-center justify-center py-2 text-center border rounded-md ">
+                <div className="text-sm font-medium">22</div>
+                <div className="text-xs text-gray-400">Mins</div>
             </div>
-            <div className="px-4 py-2 text-center border rounded">
-                <div className="font-medium">12</div>
-                <div className="text-sm text-gray-500">Sec</div>
+            <div className="flex flex-col items-center justify-center py-2 text-center border rounded-md ">
+                <div className="text-sm font-medium">12</div>
+                <div className="text-xs text-gray-400">Sec</div>
             </div>
         </div>
     );
