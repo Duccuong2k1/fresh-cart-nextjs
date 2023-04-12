@@ -12,6 +12,7 @@ import {
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { RiAddFill } from "react-icons/ri";
 import { TbArrowsRightLeft } from "react-icons/tb";
+import { useProductContext } from "@/lib/providers/product-provider";
 
 type Props = {};
 
@@ -48,8 +49,10 @@ export function HomePageBestSell({ }: Props) {
         </div>
     );
 }
+const product = { id: 123, name: "product 123" }
 
 function ProductBestSellItem() {
+    const { setProduct } = useProductContext()
     return (
         <div className="relative p-3 transition-all delay-75 border border-gray-200 rounded-md product-item hover:shadow-lg hover:border-green-600">
             <Link href={"/"}>
@@ -83,7 +86,8 @@ function ProductBestSellItem() {
             <TimerProductSell />
 
             <div className="absolute flex-row items-center justify-center flex-none gap-1 transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 product-item__option">
-                <span className="p-2 bg-white rounded-md shadow-md hover:bg-green-500 hover:text-white">
+                <span className="p-2 bg-white rounded-md shadow-md hover:bg-green-500 hover:text-white"
+                    onClick={() => setProduct?.(product)}>
                     <AiOutlineEye />
                 </span>
                 <span className="p-2 bg-white rounded-md shadow-md hover:bg-green-500 hover:text-white">

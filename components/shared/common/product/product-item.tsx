@@ -4,14 +4,15 @@ import { AiOutlineEye, AiOutlineHeart } from "react-icons/ai";
 import { RiAddFill } from "react-icons/ri";
 import { TbArrowsRightLeft } from "react-icons/tb";
 import { toast } from "react-toastify";
-import { Button } from "../utilities/form/button";
-import { RatingStar } from "./rating-star";
-import { Dialog } from "../utilities/form/dialog";
+import { Button } from "../../utilities/form/button";
+import { RatingStar } from "../rating-star";
+import { Dialog } from "../../utilities/form/dialog";
+import { useProductContext } from "@/lib/providers/product-provider";
 
 type Props = {};
 
 export function ProductItem() {
-    const [openShowProduct, setOpenShowProduct] = useState(false);
+    const { product, setProduct } = useProductContext()
     const handleButtonClick = () => {
         // Show a toast notification
         toast.success("Success!", {
@@ -57,7 +58,7 @@ export function ProductItem() {
                 <div className="absolute flex-row items-center justify-center flex-none gap-1 transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 product-item__option">
                     <span
                         className="p-2 bg-white rounded-md shadow-md cursor-pointer hover:bg-green-500 hover:text-white "
-                        onClick={() => setOpenShowProduct(true)}
+                        onClick={() => setProduct?.({ id: 1231, name: "san pham 1" })}
                     >
                         <AiOutlineEye />
                     </span>
@@ -69,13 +70,7 @@ export function ProductItem() {
                     </span>
                 </div>
             </div>
-            <Dialog
-                isOpen={openShowProduct}
-                onClose={() => setOpenShowProduct(false)}
-                maxWidth={800}
-            >
-                <div className="h-full bg-green-100"></div>
-            </Dialog>
+
         </>
     );
 }

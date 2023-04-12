@@ -1,5 +1,5 @@
 import { LabelTitle } from '@/components/shared/common/label-title';
-import { ProductItem } from '@/components/shared/common/product-item';
+import { ProductItem } from '@/components/shared/common/product/product-item';
 import React from 'react';
 
 type Props = {};

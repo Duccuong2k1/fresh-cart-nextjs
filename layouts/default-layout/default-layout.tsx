@@ -4,12 +4,15 @@ import { DefaultHead } from '../default-head'
 import { Footer } from './components/footer'
 import { Header } from './components/header'
 import { DefaultLayoutProvider } from './provider/default-layout-provider'
+import { ProductProvider } from '@/lib/providers/product-provider'
 
 interface PropsType extends ReactProps { }
 export function DefaultLayout({ ...props }: PropsType) {
     return (
         <DefaultLayoutProvider  >
-            <DefaultLayoutContent {...props}>{props.children}</DefaultLayoutContent>
+            <ProductProvider>
+                <DefaultLayoutContent {...props}>{props.children}</DefaultLayoutContent>
+            </ProductProvider>
         </DefaultLayoutProvider>
     )
 }

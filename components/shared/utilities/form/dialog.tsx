@@ -9,7 +9,7 @@ import { Button } from "./button";
 import { IoClose } from "react-icons/io5";
 import { forceCheck } from "react-lazyload";
 
-type Props = {
+export interface DialogProps {
     isOpen?: boolean;
     onClose?: () => any;
     onClick?: MouseEventHandler<HTMLDivElement>;
@@ -23,7 +23,7 @@ type Props = {
     height?: number | string;
 };
 
-export function Dialog({ children, ...props }: Props) {
+export function Dialog({ children, ...props }: DialogProps) {
     const dialogRef = useRef<HTMLDivElement | null>(null);
     const wrapperRef = useRef<HTMLDivElement | null>(null);
     const [isOpen, setIsOpen] = useState(props.isOpen);
