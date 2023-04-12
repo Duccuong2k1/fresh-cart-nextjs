@@ -3,7 +3,7 @@
 import { Button } from '@/components/shared/common/button';
 import React from 'react';
 import { HiArrowNarrowRight } from 'react-icons/hi';
-import { Pagination } from 'swiper';
+import { Autoplay, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper React components
@@ -25,7 +25,7 @@ export function HomePageSlider({ }: Props) {
                     clickable: true,
                     bulletActiveClass: `bg-green-600 hover:bg-green-600 w-4`,
                     bulletClass: `inline-block mx-1 w-2.5 h-2.5 bg-gray-400 bg-opacity-60 hover:bg-gray-700 rounded-full transition-all cursor-pointer`,
-                }} modules={[Pagination]} className="mySwiper">
+                }} modules={[Pagination, Autoplay]} className="mySwiper">
                 {
                     SLIDER_BANNER.map((slider, index) => (
 

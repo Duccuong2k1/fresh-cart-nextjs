@@ -1,7 +1,7 @@
 import { LabelTitle } from '@/components/shared/common/label-title'
 import Link from 'next/link';
 import React from 'react'
-import { Autoplay, Pagination } from 'swiper';
+import { Autoplay, Pagination, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 type Props = {}
 
@@ -26,7 +26,7 @@ function CategorySlider() {
           delay: 3000,
           disableOnInteraction: false,
         }}
-        modules={[Pagination, Autoplay]} >
+        modules={[Autoplay, Pagination]} >
         {
           CATEGORY_SWIPER.map((category, index) => (
 

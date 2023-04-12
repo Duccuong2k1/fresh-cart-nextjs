@@ -7,7 +7,7 @@
   display: none;
 }
 
-.slide-active {
+.listSwiper .swiper-slide-thumb-active {
   border: 2px solid green;
   border-radius: 10px;
 }

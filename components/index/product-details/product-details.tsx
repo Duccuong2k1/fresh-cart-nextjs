@@ -1,19 +1,22 @@
-import { Breadcrumb } from "@/components/shared/common/breadcrumb";
-import { RatingStar } from "@/components/shared/common/rating-star";
-import Link from "next/link";
-import React, { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation, Thumbs } from "swiper";
-import { Button } from "@/components/shared/common/button";
-import { AiOutlineHeart, AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-import { FiShoppingBag } from "react-icons/fi";
-import { HiArrowsRightLeft } from "react-icons/hi2";
-import { useRouter } from "next/router";
-import { ProductDetailsInfo } from "./components/product-details-info";
-import { ProductListRelatedItems } from "./components/product-list-related-items";
+import { Breadcrumb } from '@/components/shared/common/breadcrumb';
+import { Button } from '@/components/shared/common/button';
+import { RatingStar } from '@/components/shared/common/rating-star';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React, { useState } from 'react';
+import { AiOutlineHeart, AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
+import { FiShoppingBag } from 'react-icons/fi';
+import { HiArrowsRightLeft } from 'react-icons/hi2';
+import SwiperCore, { Navigation, Thumbs } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { ProductDetailsInfo } from './components/product-details-info';
+import { ProductListRelatedItems } from './components/product-list-related-items';
+
 // Import Swiper styles
 // import required modules
 type Props = {};
+
+SwiperCore.use([Navigation, Thumbs]);
 
 export function ProductDetails({ }: Props) {
     const router = useRouter();
@@ -32,18 +35,18 @@ export function ProductDetails({ }: Props) {
 }
 
 function ProductViewSlider() {
-    const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+    const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null);
 
     return (
         <div>
             <Swiper
                 spaceBetween={10}
-                thumbs={{ swiper: thumbsSwiper }}
-                modules={[FreeMode, Thumbs]}
+                thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
+                modules={[Thumbs]}
                 className="rounded-md"
             >
                 {[1, 2, 3, 4, 5].map((img, index) => (
-                    <SwiperSlide className="w-full h-[500px] " key={index}>
+                    <SwiperSlide className="w-full h-[75%] " key={index}>
 
                         <div className="">
                             <img
@@ -57,14 +60,13 @@ function ProductViewSlider() {
             </Swiper>
 
             <Swiper
-                // onSwiper={setThumbsSwiper}
+                onSwiper={setThumbsSwiper}
                 spaceBetween={10}
                 slidesPerView={4}
-                freeMode={true}
                 watchSlidesProgress={true}
-                modules={[FreeMode, Navigation, Thumbs]}
-                className="mt-5 rounded-md"
-                slideActiveClass="slide-active"
+                modules={[Navigation, Thumbs]}
+                className="mt-5 rounded-md listSwiper"
+
             >
                 {[1, 2, 3, 4, 5].map((img, index) => (
                     <SwiperSlide key={index}>
