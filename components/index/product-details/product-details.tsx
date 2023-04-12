@@ -36,6 +36,7 @@ export function ProductDetails({ }: Props) {
 
 function ProductViewSlider() {
     const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null);
+    console.log("🚀 ~ file: product-details.tsx:39 ~ ProductViewSlider ~ thumbsSwiper:", thumbsSwiper)
 
     return (
         <div>
@@ -43,10 +44,10 @@ function ProductViewSlider() {
                 spaceBetween={10}
                 thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
                 modules={[Thumbs]}
-                className="rounded-md"
+                className="transition-all delay-100 rounded-md"
             >
                 {[1, 2, 3, 4, 5].map((img, index) => (
-                    <SwiperSlide className="w-full h-[75%] " key={index}>
+                    <SwiperSlide className="w-full h-[75%] transition-all delay-100" key={index}>
 
                         <div className="">
                             <img
@@ -72,7 +73,7 @@ function ProductViewSlider() {
                     <SwiperSlide key={index}>
                         <img
                             src="/assets/imgs/product-single-img-1.jpg"
-                            className="object-cover rounded-lg"
+                            className="object-cover rounded-lg cursor-pointer"
                         />
                     </SwiperSlide>
                 ))}
