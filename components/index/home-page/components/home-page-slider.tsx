@@ -1,6 +1,6 @@
 
 
-import { Button } from '@/components/shared/common/button';
+import { Button } from '@/components/shared/utilities/form/button';
 import React from 'react';
 import { HiArrowNarrowRight } from 'react-icons/hi';
 import { Autoplay, Pagination } from 'swiper';
@@ -40,7 +40,7 @@ export function HomePageSlider({ }: Props) {
                                     icon={<HiArrowNarrowRight />}
                                     href="/shop"
                                     iconPosition='end'
-                                    className={"bg-gray-900 hover:bg-gray-700"}
+                                    className={"bg-gray-900 hover:bg-gray-700 text-white"}
 
                                 />
                             </div>

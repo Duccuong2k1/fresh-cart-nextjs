@@ -1,5 +1,5 @@
-import { Button } from '@/components/shared/common/button';
-import { Input } from '@/components/shared/common/input';
+import { Button } from '@/components/shared/utilities/form/button';
+import { Input } from '@/components/shared/utilities/form/input';
 import { LabelTitle } from '@/components/shared/common/label-title';
 import { ProgressStart } from '@/components/shared/common/progress-start';
 import { RatingStar } from '@/components/shared/common/rating-star';

@@ -1,4 +1,4 @@
-import { Button } from "@/components/shared/common/button";
+import { Button } from "@/components/shared/utilities/form/button";
 import { LabelTitle } from "@/components/shared/common/label-title";
 import { RatingStar } from "@/components/shared/common/rating-star";
 import Link from "next/link";

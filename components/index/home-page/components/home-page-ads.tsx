@@ -1,4 +1,4 @@
-import { Button } from "@/components/shared/common/button";
+import { Button } from "@/components/shared/utilities/form/button";
 import React from "react";
 
 type Props = {};
@@ -18,7 +18,7 @@ export function HomePageAds({ }: Props) {
                 <div className="my-3 text-2xl font-semibold capitalize">Fruits & vegetables</div>
                 <div className="my-2 text-gray-500 capitalize">Get upto 30% off</div>
                 <Button text="shop now"
-                    className={"bg-gray-900 hover:bg-gray-700"}
+                    className={"bg-gray-900 hover:bg-gray-700 text-white "}
                     href="/shop"
 
                 />
@@ -35,7 +35,7 @@ export function HomePageAds({ }: Props) {
                 <div className="my-3 text-2xl font-semibold capitalize">freshly baked buns</div>
                 <div className="my-2 text-gray-500 capitalize">Get upto 25% off</div>
                 <Button text="shop now"
-                    className={"bg-gray-900 hover:bg-gray-700"}
+                    className={"bg-gray-900 hover:bg-gray-700 text-white "}
                     href="/shop"
 
                 />

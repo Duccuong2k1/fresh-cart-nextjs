@@ -36,7 +36,7 @@ export function Button({
     useEffect(() => {
         setLoading(props.isLoading as boolean);
     }, [props.isLoading]);
-    let buttonStyle = `flex items-center px-4 py-2 font-semibold text-white capitalize  rounded-md `;
+    let buttonStyle = `flex items-center px-4 py-2 font-semibold  capitalize  rounded-md hover:shadow`;
 
     const onClick = (
         event: MouseEvent<HTMLAnchorElement> | MouseEvent<HTMLButtonElement>

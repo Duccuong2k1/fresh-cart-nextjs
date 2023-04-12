@@ -1,5 +1,5 @@
 import { Breadcrumb } from '@/components/shared/common/breadcrumb';
-import { Button } from '@/components/shared/common/button';
+import { Button } from '@/components/shared/utilities/form/button';
 import { RatingStar } from '@/components/shared/common/rating-star';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -36,7 +36,6 @@ export function ProductDetails({ }: Props) {
 
 function ProductViewSlider() {
     const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null);
-    console.log("🚀 ~ file: product-details.tsx:39 ~ ProductViewSlider ~ thumbsSwiper:", thumbsSwiper)
 
     return (
         <div>
