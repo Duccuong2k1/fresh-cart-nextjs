@@ -5,10 +5,12 @@ import { TfiLayoutGrid2 } from 'react-icons/tfi';
 import Link from 'next/link';
 import { SignInDialog } from '@/components/shared/common/signin-dialog';
 import { Button } from '@/components/shared/utilities/form/button';
+import { useDefaultLayoutContext } from '../provider/default-layout-provider';
 type Props = {}
 
 export function Header({ }: Props) {
     const [openFormSignUp, setOpenFormSignUp] = useState(false)
+    const { setOpenCartSlideOut } = useDefaultLayoutContext()
     return (
         <header className="border-b border-b-gray-200">
 
@@ -22,13 +24,17 @@ export function Header({ }: Props) {
                         <SearchingInput />
                     </div>
                     <div className="flex items-center justify-start gap-3">
-                        <Button
-                            className={"!p-0 hover:shadow-none m-1"}
-                            icon={<FiHeart />}
-                            iconClassName={"text-xl"}
-                            iconPosition='start'
-                            href='/wishlist'
-                        />
+                        <span className='relative'>
+
+                            <Button
+                                className={"!p-0 hover:shadow-none m-1"}
+                                icon={<FiHeart />}
+                                iconClassName={"text-xl"}
+                                iconPosition='start'
+                                href='/wishlist'
+                            />
+                            <span className='absolute px-1.5 py-0.5 text-xs text-white bg-green-600 rounded-full -top-2 -right-2 '>5</span>
+                        </span>
                         <Button
                             className={"!p-0 hover:shadow-none m-1"}
                             icon={<FiUser />}
@@ -36,12 +42,21 @@ export function Header({ }: Props) {
                             iconPosition='start'
                             onClick={() => setOpenFormSignUp(true)}
                         />
-                        <Button
-                            className={"!p-0 hover:shadow-none m-1"}
-                            icon={<FiShoppingBag />}
-                            iconClassName={"text-xl"}
-                            iconPosition='start'
-                        />
+                        <span className='relative'>
+
+                            <Button
+                                className={"!p-0 hover:shadow-none m-1"}
+                                icon={<FiShoppingBag />}
+                                iconClassName={"text-xl"}
+                                iconPosition='start'
+                                onClick={() => {
+                                    setOpenCartSlideOut?.(true)
+                                    console.log("click here")
+                                }}
+                            />
+                            <span className='absolute px-1.5 py-0.5 text-xs text-white bg-green-600 rounded-full -top-2 -right-2  '>1</span>
+
+                        </span>
 
                     </div>
                 </div>

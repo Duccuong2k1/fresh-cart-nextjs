@@ -76,23 +76,27 @@ export function Dialog({ children, ...props }: DialogProps) {
     return (
         <div
             className={`${isOpen
-                ? "visible opacity-100 translate-y-0 scale-100"
-                : "hidden opacity-0 -translate-y-4 scale-0"
-                } fixed inset-0 z-10 overflow-y-auto transition-all duration-300 ease-in-out transform`}
+                ? "h-full opacity-100 translate-y-0"
+                : "h-0 opacity-0 -translate-y-full"
+                } fixed inset-0 z-10 overflow-y-auto transition-all duration-200 ease-in-out transform`}
         >
             <div
-                className={`flex items-center justify-center min-h-screen transform ${isOpen
-                    ? "opacity-100 translate-y-0 scale-100"
-                    : "opacity-0 -translate-y-4 scale-0"
-                    }`}
+                className={`flex items-center justify-center min-h-screen   `}
             >
+
                 <div
                     className="fixed inset-0 z-10 bg-black opacity-50 "
                     ref={wrapperRef}
                     onClick={handleOverlayClick}
                 ></div>
+
                 <div
-                    className="relative z-50 w-auto p-5 bg-white rounded-md shadow-lg"
+                    className={`relative z-50 w-auto p-5 bg-white rounded-md shadow-lg transition duration-300 ease-in-out transform
+                    ${isOpen
+                            ? "opacity-100 h-full translate-y-0"
+                            : "opacity-0 h-0 -translate-y-full"
+                        }
+                    `}
                     ref={dialogRef}
                 >
                     <div

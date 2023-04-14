@@ -15,7 +15,6 @@ export const ProductContext = createContext<
 >({});
 export function ProductProvider({ ...props }: { children: React.ReactNode }) {
     const [product, setProduct] = useState<Product | null>(null);
-    console.log("🚀 ~ file: product-provider.tsx:14 ~ ProductProvider ~ product:", product)
 
 
 
