@@ -18,9 +18,9 @@ export function ShopCartSlideOut({ ...props }: ShopCartProps) {
                 <div className={`overflow-y-auto max-h-[500px]`}>
 
                     {
-                        [1, 2, 3].map((item) => (
+                        [1, 2, 3].map((item, index) => (
 
-                            <div className='grid items-center grid-cols-4 gap-3 py-2 border-b' >
+                            <div className='grid items-center grid-cols-4 gap-3 py-2 border-b' key={index} >
                                 <div className='flex flex-row items-center justify-start col-span-2 gap-5'>
 
                                     <img src="/assets/imgs/product-img-12.jpg" className='object-cover w-16 h-16' alt="product cart 1" />
