@@ -5,7 +5,7 @@ type InputProps = {
     name: string;
     placeholder?: string;
     inputClassName?: string | any;
-    type?: "number" | "text" | "phone" | string;
+    type?: "number" | "text" | "phone" | "email" | "password" | string;
 };
 
 export function Input({

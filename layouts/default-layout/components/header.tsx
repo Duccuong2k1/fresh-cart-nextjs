@@ -3,9 +3,11 @@ import { IoClose } from "react-icons/io5";
 import { FiHeart, FiSearch, FiShoppingBag, FiUser } from "react-icons/fi";
 import { TfiLayoutGrid2 } from 'react-icons/tfi';
 import Link from 'next/link';
+import { SignInDialog } from '@/components/shared/common/signin-dialog';
 type Props = {}
 
 export function Header({ }: Props) {
+    const [openFormSignUp, setOpenFormSignUp] = useState(false)
     return (
         <header className="border-b border-b-gray-200">
 
@@ -24,7 +26,7 @@ export function Header({ }: Props) {
                                 <FiHeart />
                             </i>
                         </button>
-                        <button className="m-1">
+                        <button className="m-1" onClick={() => setOpenFormSignUp(true)}>
                             <i className="text-xl">
                                 <FiUser />
                             </i>
@@ -38,6 +40,10 @@ export function Header({ }: Props) {
                 </div>
                 <HomePageNavbar />
             </div>
+            <SignInDialog
+                isOpen={openFormSignUp}
+                onClose={() => setOpenFormSignUp(false)}
+            />
         </header>
     )
 }

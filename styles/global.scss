@@ -34,6 +34,6 @@ body {
 @tailwind components;
 @tailwind utilities;
 
-@import "./base.css";
-@import "./loading.css";
-@import "./cutomer.css";
+@import "./base";
+@import "./loading";
+@import "./cutomer";

@@ -1,4 +1,4 @@
-import '../styles/global.css';
+import '../styles/global.scss';
 import type { AppProps } from 'next/app'
 import { Fragment } from 'react';
 import { DefaultSeo, NextSeo } from 'next-seo';
@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }: AppProps & any) {
         defaultTitle="E-commerce fresh cart"
         openGraph={{
           type: "website",
-          locale: "vi_VN",
+          // locale: "vi_VN",
           site_name: "E-commerce fresh cart",
         }}
       />
