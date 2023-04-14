@@ -17,7 +17,11 @@ export function ProductDetails({ }: Props) {
 
     return (
         <div className="py-5 main-container">
-            <Breadcrumb />
+            <Breadcrumb
+                listPathName={[
+                    { name: "Shop", href: "/shop" }
+                ]}
+            />
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 ">
                 <ProductViewSlider />
                 <ProductViewInfo />

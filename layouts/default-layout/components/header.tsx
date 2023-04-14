@@ -4,6 +4,7 @@ import { FiHeart, FiSearch, FiShoppingBag, FiUser } from "react-icons/fi";
 import { TfiLayoutGrid2 } from 'react-icons/tfi';
 import Link from 'next/link';
 import { SignInDialog } from '@/components/shared/common/signin-dialog';
+import { Button } from '@/components/shared/utilities/form/button';
 type Props = {}
 
 export function Header({ }: Props) {
@@ -21,21 +22,27 @@ export function Header({ }: Props) {
                         <SearchingInput />
                     </div>
                     <div className="flex items-center justify-start gap-3">
-                        <button className="m-1">
-                            <i className="text-xl">
-                                <FiHeart />
-                            </i>
-                        </button>
-                        <button className="m-1" onClick={() => setOpenFormSignUp(true)}>
-                            <i className="text-xl">
-                                <FiUser />
-                            </i>
-                        </button>
-                        <button className="m-1">
-                            <i className="text-xl">
-                                <FiShoppingBag />
-                            </i>
-                        </button>
+                        <Button
+                            className={"!p-0 hover:shadow-none m-1"}
+                            icon={<FiHeart />}
+                            iconClassName={"text-xl"}
+                            iconPosition='start'
+                            href='/wishlist'
+                        />
+                        <Button
+                            className={"!p-0 hover:shadow-none m-1"}
+                            icon={<FiUser />}
+                            iconClassName={"text-xl"}
+                            iconPosition='start'
+                            onClick={() => setOpenFormSignUp(true)}
+                        />
+                        <Button
+                            className={"!p-0 hover:shadow-none m-1"}
+                            icon={<FiShoppingBag />}
+                            iconClassName={"text-xl"}
+                            iconPosition='start'
+                        />
+
                     </div>
                 </div>
                 <HomePageNavbar />
