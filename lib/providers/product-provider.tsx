@@ -2,34 +2,49 @@
 import { ProductDetailDialog } from '@/components/shared/common/product/product-detail-dialog';
 import { useRouter } from 'next/router';
 import React, { createContext, Dispatch, FC, SetStateAction, useContext, useEffect, useState } from 'react';
-interface Product {
-    id?: number | string;
-    name?: string;
-    images?: string[]
-}
+import { ProductType } from '../res/product';
+import productApi from '@/pages/api/product/productApi';
+
 export const ProductContext = createContext<
     Partial<{
-        product: Product | null;
-        setProduct?: Dispatch<SetStateAction<Product | null>>
+        product: ProductType | undefined;
+        products: ProductType[]
+        setProduct?: (product: ProductType) => void;
     }>
 >({});
 export function ProductProvider({ ...props }: { children: React.ReactNode }) {
-    const [product, setProduct] = useState<Product | null>(null);
+    const [product, setProduct] = useState<ProductType | undefined>(undefined);
 
-
+    const [products, setProducts] = useState([])
+    useEffect(() => {
+        const params = {};
+        // Fetch products data from productApi
+        const fetchingProducts = async () => {
+            try {
+                const response = await productApi.getAll(params);
+                const productsData = response;
+                setProducts(productsData as any);
+            } catch (error) {
+                // Handle error
+                console.error(error);
+            }
+        };
+        fetchingProducts();
+    }, []);
 
     return (
         <ProductContext.Provider
             value={{
                 product,
-                setProduct
+                setProduct,
+                products,
             }}
         >
             {props.children}
 
             <ProductDetailDialog
                 isOpen={!!product}
-                onClose={() => setProduct(null)}
+                onClose={() => setProduct(undefined)}
             />
 
         </ProductContext.Provider>

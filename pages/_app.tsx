@@ -1,8 +1,10 @@
-import '../styles/global.scss';
-import type { AppProps } from 'next/app'
-import { Fragment } from 'react';
-import { DefaultSeo, NextSeo } from 'next-seo';
-import { ToastContainer } from 'react-toastify';
+import "../styles/global.scss";
+import type { AppProps } from "next/app";
+import { Fragment } from "react";
+import { DefaultSeo, NextSeo } from "next-seo";
+import { ToastContainer } from "react-toastify";
+import { Provider } from "react-redux";
+import store from "@/app/store";
 
 export default function App({ Component, pageProps }: AppProps & any) {
   const Layout = Component.Layout ? Component.Layout : Fragment;
@@ -19,11 +21,12 @@ export default function App({ Component, pageProps }: AppProps & any) {
         }}
       />
       {pageProps.seo && <NextSeo {...pageProps.seo} />}
-      <Layout {...layoutProps}>
-        <Component {...pageProps} />
-      </Layout>
-      <ToastContainer />
-
+      <Provider store={store}>
+        <Layout {...layoutProps}>
+          <Component {...pageProps} />
+        </Layout>
+        <ToastContainer />
+      </Provider>
     </>
-  )
+  );
 }

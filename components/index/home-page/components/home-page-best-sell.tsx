@@ -13,10 +13,12 @@ import { HiArrowNarrowRight } from "react-icons/hi";
 import { RiAddFill } from "react-icons/ri";
 import { TbArrowsRightLeft } from "react-icons/tb";
 import { useProductContext } from "@/lib/providers/product-provider";
+import { ProductType } from "@/lib/res/product";
 
 type Props = {};
 
 export function HomePageBestSell({ }: Props) {
+    const { products } = useProductContext()
     return (
         <div className="my-8 main-container">
             <LabelTitle text="Daily best sells" />
@@ -42,38 +44,38 @@ export function HomePageBestSell({ }: Props) {
                         }
                     />
                 </div>
-                {[1, 2, 3].map((product, index) => (
-                    <ProductBestSellItem key={index} />
+                {products?.slice(0, 3).map((product, index) => (
+                    <ProductBestSellItem key={index} product={product} />
                 ))}
             </div>
         </div>
     );
 }
-const product = { id: 123, name: "product 123" }
 
-function ProductBestSellItem() {
+
+function ProductBestSellItem({ product, ...props }: { product?: ProductType }) {
     const { setProduct } = useProductContext()
     return (
         <div className="relative p-3 transition-all delay-75 border border-gray-200 rounded-md product-item hover:shadow-lg hover:border-green-600">
-            <Link href={"/"}>
+            <Link href={`/product?productId=${product?.id}`}>
                 <img
-                    src="https://freshcart.codescandy.com/assets/images/products/product-img-1.jpg"
+                    src={product?.thumbnail}
                     alt="image product"
                     className="object-cover mx-auto "
                 />
 
-                <div className="my-1 text-sm text-gray-500">snack & rice</div>
+                <div className="my-1 text-sm text-gray-500">{product?.category}</div>
 
                 <div className="my-1 font-semibold text-gray-800 hover:text-green-600">
-                    Haldirams Sev Bhujia
+                    {product?.name}
                 </div>
             </Link>
             <div className="flex items-center justify-between mt-3">
                 <div className="flex items-center justify-start gap-2">
-                    <span className="font-semibold text-gray-800">$24</span>{" "}
-                    <del className="text-gray-400 ">$55</del>{" "}
+                    <span className="font-semibold text-gray-800">${product?.price}</span>{" "}
+                    <del className="text-gray-400 ">${product?.priceOld}</del>{" "}
                 </div>
-                <RatingStar numberStar={4.6} buyAmount={342} />
+                <RatingStar numberStar={product?.rate} buyAmount={342} />
             </div>
             <Button
                 text="Add to cart"
@@ -87,7 +89,7 @@ function ProductBestSellItem() {
 
             <div className="absolute flex-row items-center justify-center flex-none gap-1 transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/3 product-item__option">
                 <span className="p-2 bg-white rounded-md shadow-md hover:bg-green-500 hover:text-white"
-                    onClick={() => setProduct?.(product)}>
+                    onClick={() => setProduct?.(product as any)}>
                     <AiOutlineEye />
                 </span>
                 <span className="p-2 bg-white rounded-md shadow-md hover:bg-green-500 hover:text-white">

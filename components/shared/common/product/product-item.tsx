@@ -8,10 +8,12 @@ import { Button } from "../../utilities/form/button";
 import { RatingStar } from "../rating-star";
 import { Dialog } from "../../utilities/form/dialog";
 import { useProductContext } from "@/lib/providers/product-provider";
+import { ProductType } from "@/lib/res/product";
 
 type Props = {};
 
-export function ProductItem() {
+export function ProductItem({ productItem, ...props }: { productItem?: ProductType }) {
+    console.log("🚀 ~ file: product-item.tsx:16 ~ ProductItem ~ productItem:", productItem)
     const { product, setProduct } = useProductContext()
     const handleButtonClick = () => {
         // Show a toast notification
@@ -22,27 +24,29 @@ export function ProductItem() {
     return (
         <>
             <div className="relative p-3 transition-all delay-75 border border-gray-200 rounded-md product-item hover:shadow-lg hover:border-green-600">
-                <span className="inline px-2 py-1 text-xs font-semibold text-white bg-red-500 rounded-md">
-                    sale
-                </span>
-                <Link href={`/product?productId=${345}`}>
+                {productItem?.tag && <span className="inline px-2 py-1 text-xs font-semibold text-white bg-red-500 rounded-md">
+                    {productItem?.tag}
+                </span>}
+
+                <Link href={`/product?productId=${productItem?.id}`} className="block">
                     <img
-                        src="https://freshcart.codescandy.com/assets/images/products/product-img-1.jpg"
+                        src={productItem?.thumbnail}
                         alt="image product"
                         className="object-cover mx-auto"
                     />
 
-                    <div className="my-1 text-sm text-gray-500">snack & rice</div>
+                    <div className="my-1 text-sm text-gray-500">{productItem?.category}</div>
 
                     <div className="my-1 font-semibold text-gray-800 hover:text-green-600">
-                        Haldirams Sev Bhujia
+                        {productItem?.name}
                     </div>
                 </Link>
-                <RatingStar numberStar={3.6} buyAmount={346} />
+
+                <RatingStar numberStar={productItem?.rate} buyAmount={346} />
                 <div className="flex items-center justify-between mt-3">
                     <div className="flex items-center justify-start gap-2">
-                        <span className="font-semibold text-gray-800">$24</span>{" "}
-                        <del className="text-gray-400 ">$55</del>{" "}
+                        <span className="font-semibold text-gray-800">${productItem?.price}</span>{" "}
+                        <del className="text-gray-400 ">${productItem?.priceOld}</del>{" "}
                     </div>
                     <Button
                         text="Add"
@@ -58,7 +62,7 @@ export function ProductItem() {
                 <div className="absolute flex-row items-center justify-center flex-none gap-1 transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 product-item__option">
                     <span
                         className="p-2 bg-white rounded-md shadow-md cursor-pointer hover:bg-green-500 hover:text-white "
-                        onClick={() => setProduct?.({ id: 1231, name: "san pham 1" })}
+                        onClick={() => setProduct?.(productItem as any)}
                     >
                         <AiOutlineEye />
                     </span>

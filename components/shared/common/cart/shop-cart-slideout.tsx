@@ -3,10 +3,19 @@ import { SildeOutProps, SlideOut } from '../../utilities/form/slide-out'
 import { Button } from '../../utilities/form/button'
 import { RiDeleteBinLine } from 'react-icons/ri'
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
+import { useDispatch, useSelector } from 'react-redux'
+import { increment } from '@/app/cart/cartSlice'
 
 interface ShopCartProps extends SildeOutProps { }
 
 export function ShopCartSlideOut({ ...props }: ShopCartProps) {
+    const dispatch = useDispatch()
+    const amount = useSelector((state: any) => state.cart)
+    console.log("🚀 ~ file: shop-cart-slideout.tsx:14 ~ ShopCartSlideOut ~ amount:", amount)
+
+    const handleIncrement = () => {
+        dispatch(increment())
+    }
     return (
         <>
             <SlideOut
@@ -44,12 +53,12 @@ export function ShopCartSlideOut({ ...props }: ShopCartProps) {
                                         onClick={() => console.log("minus")}
                                         iconClassName="text-gray-600"
                                     />
-                                    <span className="px-3 py-1 text-sm border-t border-b">1</span>
+                                    <span className="px-3 py-1 text-sm border-t border-b">{amount}</span>
                                     <Button
                                         icon={<AiOutlinePlus />}
                                         iconPosition="start"
                                         className={"bg-white hover:bg-slate-50 border rounded-sm  px-0.5 !py-1"}
-                                        onClick={() => console.log("plus")}
+                                        onClick={handleIncrement}
                                         iconClassName="text-gray-600"
                                     />
                                 </div>
