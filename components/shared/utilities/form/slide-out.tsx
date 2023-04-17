@@ -21,9 +21,10 @@ export interface SildeOutProps {
     bodyClassName?: string;
     maxWidth?: number | string;
     height?: number | string;
+    className?: string | any;
 }
 
-export function SlideOut({ children, ...props }: SildeOutProps) {
+export function SlideOut({ className = "w-1/3", children, ...props }: SildeOutProps) {
     const [isOpen, setIsOpen] = useState(props.isOpen);
     const wrapperRef = useRef<HTMLDivElement | null>(null);
 
@@ -60,7 +61,7 @@ export function SlideOut({ children, ...props }: SildeOutProps) {
             )}
             {/* Slide-out content */}
             <div
-                className={`fixed top-0 right-0 h-full w-1/3 bg-white z-10 transition duration-300 transform ${isOpen ? "translate-x-0" : "translate-x-full"
+                className={` ${className} fixed top-0 right-0  h-full bg-white z-10 transition duration-300 transform ${isOpen ? "translate-x-0" : "translate-x-full"
                     }`}
             >
                 {/* Content of the slide-out */}

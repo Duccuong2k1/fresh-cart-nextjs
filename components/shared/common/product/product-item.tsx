@@ -1,19 +1,18 @@
-import Link from "next/link";
-import React, { useState } from "react";
-import { AiOutlineEye, AiOutlineHeart } from "react-icons/ai";
-import { RiAddFill } from "react-icons/ri";
-import { TbArrowsRightLeft } from "react-icons/tb";
-import { toast } from "react-toastify";
-import { Button } from "../../utilities/form/button";
-import { RatingStar } from "../rating-star";
-import { Dialog } from "../../utilities/form/dialog";
-import { useProductContext } from "@/lib/providers/product-provider";
-import { ProductType } from "@/lib/res/product";
+import { useProductContext } from '@/lib/providers/product-provider';
+import { ProductType } from '@/lib/res/product';
+import Link from 'next/link';
+import React, { useState } from 'react';
+import { AiOutlineEye, AiOutlineHeart } from 'react-icons/ai';
+import { RiAddFill } from 'react-icons/ri';
+import { TbArrowsRightLeft } from 'react-icons/tb';
+import { toast } from 'react-toastify';
+
+import { Button } from '../../utilities/form/button';
+import { RatingStar } from '../rating-star';
 
 type Props = {};
 
 export function ProductItem({ productItem, ...props }: { productItem?: ProductType }) {
-    console.log("🚀 ~ file: product-item.tsx:16 ~ ProductItem ~ productItem:", productItem)
     const { product, setProduct } = useProductContext()
     const handleButtonClick = () => {
         // Show a toast notification

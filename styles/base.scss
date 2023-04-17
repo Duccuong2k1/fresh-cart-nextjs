@@ -20,7 +20,32 @@ a:focus {
 .main-container {
   margin-left: auto;
   margin-right: auto;
-  width: 75%;
+  width: 94%;
+
+  @screen xs {
+    width: 94%;
+    max-width: none;
+  }
+  @screen sm {
+    width: 94%;
+    max-width: none;
+  }
+  @screen md {
+    width: 92%;
+    max-width: none;
+  }
+  @screen lg {
+    width: 90%;
+    @apply max-w-screen-lg;
+  }
+  @screen xl {
+    width: 88%;
+    @apply max-w-screen-xl;
+  }
+  @screen 2xl {
+    width: 86%;
+    @apply max-w-screen-xl;
+  }
 }
 
 .no-focus:not(.btn) {

@@ -22,9 +22,9 @@ export function HomePageBestSell({ }: Props) {
     return (
         <div className="my-8 main-container">
             <LabelTitle text="Daily best sells" />
-            <div className="grid grid-cols-4 gap-5 py-8 my-4 overflow-x-auto ">
+            <div className="grid grid-cols-1 gap-5 py-8 my-4 overflow-x-auto lg:grid-cols-4 ">
                 <div
-                    className="px-6 pt-8 bg-no-repeat bg-cover rounded-md"
+                    className="px-6 pt-8 bg-no-repeat bg-cover rounded-md "
                     style={{
                         backgroundImage: 'url("/assets/imgs/banner-deal.jpg")',
                         height: "470px",

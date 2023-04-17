@@ -21,6 +21,7 @@ export function ShopCartSlideOut({ ...props }: ShopCartProps) {
             <SlideOut
                 isOpen={props.isOpen}
                 onClose={props.onClose}
+                className={`${props.isOpen ?? "lg:w-1/3"}  `}
             >
                 <div className='text-xl font-semibold'>Shop cart</div>
                 <hr className='my-3' />

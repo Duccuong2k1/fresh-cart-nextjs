@@ -1,4 +1,5 @@
 import { LabelTitle } from '@/components/shared/common/label-title'
+import { useScreen } from '@/lib/hooks/useScreen';
 import Link from 'next/link';
 import React from 'react'
 import { Autoplay, Pagination, Navigation } from 'swiper';
@@ -16,10 +17,12 @@ export function HomePageCategories({ }: Props) {
 
 
 function CategorySlider() {
+  const isLg = useScreen("lg");
+  const isSm = useScreen("sm");
   return (
     <div className='my-5'>
       <Swiper
-        slidesPerView={6}
+        slidesPerView={isLg ? 6 : isSm ? 3 : 2}
         spaceBetween={20}
         loop={true}
         autoplay={{
@@ -55,7 +58,7 @@ function CategoryItemSlide({ category, ...props }: {
 
       <div className='flex flex-col items-center justify-center p-4 transition-all delay-100 border border-gray-200 rounded-md hover:border-green-500 hover:shadow-md'>
         <img src={category?.img} alt={category.title} className="object-cover" />
-        <div className='mt-4 font-medium capitalize hover:text-green-700 text-ellipsis'>{category.title}</div>
+        <div className='mt-4 overflow-hidden font-medium capitalize hover:text-green-700 text-ellipsis-2'>{category.title}</div>
       </div>
     </Link>
   )
