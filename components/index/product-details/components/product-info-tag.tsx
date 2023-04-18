@@ -4,7 +4,7 @@ type Props = {}
 
 export function ProductInfoTag({ }: Props) {
     return (
-        <div className='w-1/2'>
+        <div className='w-full lg:w-1/2'>
             <div className='flex flex-row items-center justify-start gap-5 p-4 text-gray-600 bg-gray-100 border-b'>
                 <span className='w-1/2 font-semibold'>Weight</span>
                 <span className='w-1/2'>1000 grams</span>

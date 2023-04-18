@@ -3,8 +3,9 @@ import SwiperCore, { Navigation, Thumbs } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 SwiperCore.use([Navigation, Thumbs]);
-export function ProductViewSlider() {
+export function ProductViewSlider({ productSlider }: { productSlider: string[] }) {
     const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null);
+
 
     return (
         <div>
@@ -12,14 +13,14 @@ export function ProductViewSlider() {
                 spaceBetween={10}
                 thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
                 modules={[Thumbs]}
-                className="transition-all delay-100 rounded-md"
+                className="flex flex-row justify-center transition-all delay-100 rounded-md h-80 bg-gray-50"
             >
-                {[1, 2, 3, 4, 5].map((img, index) => (
-                    <SwiperSlide className="w-full h-[75%] transition-all delay-100" key={index}>
+                {productSlider?.length && productSlider?.map((img, index) => (
+                    <SwiperSlide className="w-full h-[75%] transition-all delay-100 flex justify-center items-center" key={index}>
 
-                        <div className="">
+                        <div className="text-center">
                             <img
-                                src="/assets/imgs/product-single-img-1.jpg"
+                                src={img}
                                 className="object-contain rounded-md"
                             />
                         </div>
@@ -37,10 +38,10 @@ export function ProductViewSlider() {
                 className="mt-5 rounded-md listSwiper"
 
             >
-                {[1, 2, 3, 4, 5].map((img, index) => (
+                {productSlider?.length && productSlider?.map((img, index) => (
                     <SwiperSlide key={index}>
                         <img
-                            src="/assets/imgs/product-single-img-1.jpg"
+                            src={img}
                             className="object-cover rounded-lg cursor-pointer"
                         />
                     </SwiperSlide>

@@ -6,6 +6,8 @@ import React, { useState } from 'react';
 
 import { ProductDetailsInfo } from './components/product-details-info';
 import { ProductListRelatedItems } from './components/product-list-related-items';
+import { useProductContext } from '@/lib/providers/product-provider';
+import { Spinner } from '@/components/shared/utilities/misc';
 
 // Import Swiper styles
 // import required modules
@@ -13,8 +15,8 @@ type Props = {};
 
 
 export function ProductDetails({ }: Props) {
-    const router = useRouter();
-
+    const { productDetail } = useProductContext()
+    if (!productDetail) return <Spinner />
     return (
         <div className="py-5 main-container">
             <Breadcrumb
@@ -23,8 +25,8 @@ export function ProductDetails({ }: Props) {
                 ]}
             />
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 ">
-                <ProductViewSlider />
-                <ProductViewInfo />
+                <ProductViewSlider productSlider={productDetail?.images as any} />
+                <ProductViewInfo productInfo={productDetail} />
             </div>
             <ProductDetailsInfo />
             <ProductListRelatedItems />

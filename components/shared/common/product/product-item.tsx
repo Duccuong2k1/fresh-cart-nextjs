@@ -50,9 +50,10 @@ export function ProductItem({ productItem, ...props }: { productItem?: ProductTy
                     <Button
                         text="Add"
                         icon={<RiAddFill />}
+                        iconClassName={"text-sm lg:text-lg"}
                         iconPosition="start"
                         className={
-                            "bg-green-600 text-white hover:bg-green-800 !py-1 px-2 text-sm"
+                            "bg-green-600 text-white hover:bg-green-800 !py-1 lg:px-2 lg:text-sm text-xs pl-1 pr-1.5 "
                         }
                         onClick={() => handleButtonClick()}
                     />

@@ -8,7 +8,7 @@ type Props = {}
 export function Footer({ }: Props) {
     return (
         <div className='mt-10 bg-gray-100'>
-            <div className='grid grid-cols-1 gap-2 py-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-5 main-container'>
+            <div className='grid grid-cols-2 gap-2 py-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-5 main-container'>
                 <div>
                     <div className='mb-8 font-semibold'>Categories</div>
                     <ul className='flex flex-col gap-3'>

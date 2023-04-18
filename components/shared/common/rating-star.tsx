@@ -9,7 +9,7 @@ type Props = {
 export function RatingStar({ numberStar, buyAmount }: Props) {
     return (
         <div className="flex flex-row items-center justify-start gap-2">
-            <div className="flex flex-row items-center justify-start gap-1">
+            <div className="flex flex-row items-center justify-start gap-1 text-xs lg:text-base">
                 <span className="text-yellow-300">
                     <AiFillStar />
                 </span>

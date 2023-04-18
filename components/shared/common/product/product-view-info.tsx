@@ -4,31 +4,32 @@ import { Button } from "../../utilities/form/button";
 import { AiOutlineHeart, AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { FiShoppingBag } from "react-icons/fi";
 import { HiArrowsRightLeft } from "react-icons/hi2";
+import { ProductType } from "@/lib/res/product";
 
-export function ProductViewInfo() {
+export function ProductViewInfo({ productInfo }: { productInfo: ProductType }) {
     return (
         <div className="flex flex-col justify-start gap-2">
             <Link
                 href="/"
                 className="font-semibold text-green-500 hover:text-green-700"
             >
-                bread & foods
+                {productInfo?.category}
             </Link>
-            <div className="text-4xl font-semibold capitalize">napolitanke bread</div>
+            <div className="text-4xl font-semibold capitalize">{productInfo?.name}</div>
             <RatingStar />
             <div className="flex flex-row items-center justify-start gap-5">
-                <span className="text-2xl font-semibold text-gray-800 ">$33</span>
-                <del className="text-xl font-semibold text-gray-400 ">$54</del>
-                <span className="text-sm font-semibold text-red-500 ">26% Off</span>
+                <span className="text-2xl font-semibold text-gray-800 ">${productInfo?.price}</span>
+                <del className="text-xl font-semibold text-gray-400 ">${productInfo?.priceOld}</del>
+                <span className="text-sm font-semibold text-red-500 ">{productInfo?.tag}</span>
             </div>
             <hr className="my-5" />
             <div className="flex flex-row items-center justify-start gap-2">
-                {[123, 466, 33].map((tag, index) => (
+                {productInfo?.options?.length && productInfo?.options?.map((tag, index) => (
                     <span
                         key={index}
                         className="px-4 py-2 font-medium text-gray-500 border rounded-lg cursor-pointer hover:bg-gray-400 hover:text-white "
                     >
-                        {tag}kg
+                        {tag}
                     </span>
                 ))}
             </div>
@@ -69,14 +70,14 @@ export function ProductViewInfo() {
             <hr className="my-5" />
             <div className="flex flex-row items-center justify-start my-2 text-gray-600 ">
                 <span className="w-1/3 capitalize ">product code:</span>{" "}
-                <span>sdfasd33</span>{" "}
+                <span>{productInfo?.code}</span>{" "}
             </div>
             <div className="flex flex-row items-center justify-start my-2 text-gray-600 ">
                 <span className="w-1/3 capitalize ">availability:</span>{" "}
-                <span>in stock</span>{" "}
+                <span>{productInfo?.status}</span>{" "}
             </div>
             <div className="flex flex-row items-center justify-start my-2 text-gray-600 ">
-                <span className="w-1/3 capitalize ">type:</span> <span>foods</span>{" "}
+                <span className="w-1/3 capitalize ">type:</span> <span>{productInfo?.category}</span>{" "}
             </div>
             <div className="flex flex-row items-center justify-start my-2 text-gray-600 ">
                 <span className="w-1/3 capitalize ">shipping:</span>{" "}

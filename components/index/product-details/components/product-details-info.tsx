@@ -30,8 +30,6 @@ export function ProductDetailsInfo({ }: Props) {
                     <ProductInfoTag />
                 ) : tagSelected === "REVIEW" ? (
                     <ProductReviewsTag />
-                ) : tagSelected === "SELLER" ? (
-                    <div>page in process update</div>
                 ) : (
                     <></>
                 )}
@@ -44,5 +42,5 @@ const TAG_INFO = [
     { value: "DETAILS", label: "Product details" },
     { value: "INFO", label: "information" },
     { value: "REVIEW", label: "reviews" },
-    { value: "SELLER", label: "Seller info" },
+    // { value: "SELLER", label: "Seller info" },
 ];

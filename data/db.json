@@ -18,12 +18,16 @@
       "priceOld": 24.0,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "thumbnail": "/assets/imgs/product-img-11.jpg",
-      "images": ["123kg", "50kg", "70kg"],
+      "options": ["123kg", "50kg", "70kg"],
       "category": "snack & food",
       "tag": "sale",
       "rate": 4,
       "code": "POD001",
-      "options": [""],
+      "images": [
+        "/assets/imgs/product-img-11.jpg",
+        "/assets/imgs/product-img-8.jpg",
+        "/assets/imgs/product-img-7.jpg"
+      ],
       "status": "in stock"
     },
 
@@ -34,12 +38,16 @@
       "priceOld": 44.0,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "thumbnail": "/assets/imgs/product-img-12.jpg",
-      "images": ["43kg", "50kg", "70kg"],
+      "options": ["43kg", "50kg", "70kg"],
       "category": "cleaning",
       "tag": "14%",
       "rate": 4.5,
       "code": "POD00",
-      "options": [""],
+      "images": [
+        "/assets/imgs/product-img-12.jpg",
+        "/assets/imgs/product-img-11.jpg",
+        "/assets/imgs/product-img-3.jpg"
+      ],
       "status": "in stock"
     },
 
@@ -50,12 +58,17 @@
       "priceOld": 14.0,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "thumbnail": "/assets/imgs/product-img-13.jpg",
-      "images": ["23kg", "40kg", "70kg"],
+      "options": ["23kg", "40kg", "70kg"],
       "category": "Bakery & Biscuits",
       "tag": null,
       "rate": 4.6,
       "code": "POD003",
-      "options": [""],
+      "images": [
+        "/assets/imgs/product-img-13.jpg",
+        "/assets/imgs/product-img-1.jpg",
+        "/assets/imgs/product-img-2.jpg"
+      ],
+
       "status": "in stock"
     },
 
@@ -66,12 +79,17 @@
       "priceOld": 4.0,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "thumbnail": "/assets/imgs/product-img-1.jpg",
-      "images": ["13kg", "20kg", "60kg"],
+      "options": ["13kg", "20kg", "60kg"],
       "category": "snack & food",
       "tag": "hot",
       "rate": 4,
       "code": "POD004",
-      "options": [""],
+      "images": [
+        "/assets/imgs/product-img-2.jpg",
+        "/assets/imgs/product-img-3.jpg",
+        "/assets/imgs/product-img-4.jpg"
+      ],
+
       "status": "in stock"
     },
 
@@ -82,12 +100,18 @@
       "priceOld": 12.0,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "thumbnail": "/assets/imgs/product-img-2.jpg",
-      "images": ["123kg", "50kg", "70kg"],
+      "options": ["123kg", "50kg", "70kg"],
       "category": "snack & food",
       "tag": null,
       "rate": 4,
       "code": "POD005",
-      "options": [""],
+      "images": [
+        "/assets/imgs/product-img-2.jpg",
+        "/assets/imgs/product-img-12.jpg",
+        "/assets/imgs/product-img-3.jpg",
+        "/assets/imgs/product-img-1.jpg"
+      ],
+
       "status": "in stock"
     },
     {
@@ -97,12 +121,17 @@
       "priceOld": 12.0,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "thumbnail": "/assets/imgs/product-img-4.jpg",
-      "images": ["123kg", "50kg", "70kg"],
+      "options": ["123kg", "50kg", "70kg"],
       "category": "snack & food",
       "tag": null,
       "rate": 4,
       "code": "POD005",
-      "options": [""],
+      "images": [
+        "/assets/imgs/product-img-4.jpg",
+        "/assets/imgs/product-img-7.jpg",
+        "/assets/imgs/product-img-6.jpg"
+      ],
+
       "status": "in stock"
     },
     {
@@ -112,12 +141,18 @@
       "priceOld": 15.0,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "thumbnail": "/assets/imgs/product-img-6.jpg",
-      "images": ["123kg", "50kg", "70kg"],
+      "options": ["123kg", "50kg", "70kg"],
       "category": "snack & food",
       "tag": "sale",
       "rate": 4.5,
       "code": "POD007",
-      "options": [""],
+      "images": [
+        "/assets/imgs/product-img-6.jpg",
+        "/assets/imgs/product-img-7.jpg",
+        "/assets/imgs/product-img-6.jpg",
+        "/assets/imgs/product-img-11.jpg"
+      ],
+
       "status": "in stock"
     },
     {
@@ -127,12 +162,17 @@
       "priceOld": 22.0,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "thumbnail": "/assets/imgs/product-img-7.jpg",
-      "images": ["23kg", "50kg", "70kg"],
+      "options": ["23kg", "50kg", "70kg"],
       "category": "Instant Food",
       "tag": "10%",
       "rate": 4.1,
       "code": "POD008",
-      "options": [""],
+      "images": [
+        "/assets/imgs/product-img-7.jpg",
+        "/assets/imgs/product-img-11.jpg",
+        "/assets/imgs/product-img-6.jpg"
+      ],
+
       "status": "in stock"
     },
     {
@@ -142,12 +182,17 @@
       "priceOld": 12.0,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "thumbnail": "/assets/imgs/product-img-8.jpg",
-      "images": ["13kg", "5kg", "71kg"],
+      "options": ["13kg", "5kg", "71kg"],
       "category": "Dairy, Bread & Eggs",
       "tag": "sale",
       "rate": 3.4,
       "code": "POD009",
-      "options": [""],
+      "images": [
+        "/assets/imgs/product-img-8.jpg",
+        "/assets/imgs/product-img-4.jpg",
+        "/assets/imgs/product-img-6.jpg"
+      ],
+
       "status": "in stock"
     },
     {
@@ -157,12 +202,16 @@
       "priceOld": 12.0,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "thumbnail": "/assets/imgs/product-img-10.jpg",
-      "images": ["3kg", "5kg", "7kg"],
+      "options": ["3kg", "5kg", "7kg"],
       "category": "Snack & Munchies",
       "tag": null,
       "rate": 4,
       "code": "POD010",
-      "options": [""],
+      "images": [
+        "/assets/imgs/product-img-10.jpg",
+        "/assets/imgs/product-img-11.jpg",
+        "/assets/imgs/product-img-12.jpg"
+      ],
       "status": "in stock"
     }
   ],

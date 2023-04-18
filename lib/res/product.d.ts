@@ -5,11 +5,11 @@ export interface ProductType {
     priceOld?: number,
     description?: string,
     thumbnail?: string,
-    image?: [string]
+    images?: [string]
     category?: string,
     tag?: string,
     rate?: number,
     code?: string,
-    options?: string[],
+    options?: [string],
     status?: string,
 }

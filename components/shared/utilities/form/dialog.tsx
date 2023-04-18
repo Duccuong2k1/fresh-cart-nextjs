@@ -76,8 +76,8 @@ export function Dialog({ children, ...props }: DialogProps) {
     return (
         <div
             className={`${isOpen
-                ? "h-full opacity-100 translate-y-0"
-                : "h-0 opacity-0 -translate-y-full"
+                ? "h-full opacity-100 translate-y-0 animate-emerge"
+                : "h-0 opacity-0 translate-y-full animate-fade"
                 } fixed inset-0 z-10 overflow-y-auto transition-all duration-200 ease-in-out transform`}
         >
             <div
@@ -93,8 +93,8 @@ export function Dialog({ children, ...props }: DialogProps) {
                 <div
                     className={`relative z-50 w-auto p-5 bg-white rounded-md shadow-lg transition duration-300 ease-in-out transform
                     ${isOpen
-                            ? "opacity-100 h-full translate-y-0"
-                            : "opacity-0 h-0 -translate-y-full"
+                            ? "opacity-100 h-full translate-y-0 animate-emerge"
+                            : "opacity-0 h-0 translate-y-full animate-fade"
                         }
                     `}
                     ref={dialogRef}

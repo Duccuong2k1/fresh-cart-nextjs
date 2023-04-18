@@ -1,19 +1,14 @@
-import { Button } from "@/components/shared/utilities/form/button";
-import { LabelTitle } from "@/components/shared/common/label-title";
-import { RatingStar } from "@/components/shared/common/rating-star";
-import Link from "next/link";
-import React from "react";
-import {
-    AiFillStar,
-    AiOutlineEye,
-    AiOutlineHeart,
-    AiOutlineStar,
-} from "react-icons/ai";
-import { HiArrowNarrowRight } from "react-icons/hi";
-import { RiAddFill } from "react-icons/ri";
-import { TbArrowsRightLeft } from "react-icons/tb";
-import { useProductContext } from "@/lib/providers/product-provider";
-import { ProductType } from "@/lib/res/product";
+import { LabelTitle } from '@/components/shared/common/label-title';
+import { RatingStar } from '@/components/shared/common/rating-star';
+import { Button } from '@/components/shared/utilities/form/button';
+import { useProductContext } from '@/lib/providers/product-provider';
+import { ProductType } from '@/lib/res/product';
+import Link from 'next/link';
+import React from 'react';
+import { AiOutlineEye, AiOutlineHeart } from 'react-icons/ai';
+import { HiArrowNarrowRight } from 'react-icons/hi';
+import { RiAddFill } from 'react-icons/ri';
+import { TbArrowsRightLeft } from 'react-icons/tb';
 
 type Props = {};
 

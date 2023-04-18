@@ -6,7 +6,7 @@ interface PropsType extends ReactProps {
 }
 export function Spinner({ icon = <CgSpinner />, className = "py-12", ...props }: PropsType) {
   return (
-    <div className={`w-full flex-col justify-center items-center text-primary ${className}`}>
+    <div className={`w-full flex-col justify-center items-center text-primary main-container ${className}`}>
       <div className="bounce">
         <div></div>
         <div></div>

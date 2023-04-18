@@ -14,8 +14,8 @@ export function ProductReviewsTag({ }: Props) {
 
     }
     return (
-        <div className="flex flex-row flex-wrap justify-between gap-14 ">
-            <div className="w-1/3">
+        <div className="flex flex-col flex-wrap justify-between lg:flex-row gap-14 ">
+            <div className="w-full lg:w-1/3">
                 <div className="my-3 text-2xl font-semibold">Customer reviews</div>
                 <div className="flex flex-row items-center gap-5">
                     <RatingStar />

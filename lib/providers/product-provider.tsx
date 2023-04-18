@@ -10,12 +10,18 @@ export const ProductContext = createContext<
         product: ProductType | undefined;
         products: ProductType[]
         setProduct?: (product: ProductType) => void;
+        productDetail: ProductType | undefined;
+        setProductDetail?: (product: ProductType) => void;
+
     }>
 >({});
 export function ProductProvider({ ...props }: { children: React.ReactNode }) {
     const [product, setProduct] = useState<ProductType | undefined>(undefined);
+    const [productDetail, setProductDetail] = useState<ProductType | undefined>(undefined);
 
     const [products, setProducts] = useState([])
+    const router = useRouter()
+    const { productId } = router.query;
     useEffect(() => {
         const params = {};
         // Fetch products data from productApi
@@ -31,13 +37,27 @@ export function ProductProvider({ ...props }: { children: React.ReactNode }) {
         };
         fetchingProducts();
     }, []);
+    useEffect(() => {
 
+        const fetchingProducts = async () => {
+            try {
+                const response = await productApi.getOne(productId as string);
+                const productsData = response;
+                setProductDetail(productsData as any);
+            } catch (error) {
+                // Handle error
+                console.error(error);
+            }
+        };
+        fetchingProducts();
+    }, [productId]);
     return (
         <ProductContext.Provider
             value={{
                 product,
                 setProduct,
                 products,
+                productDetail,
             }}
         >
             {props.children}
