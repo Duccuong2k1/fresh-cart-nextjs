@@ -65,6 +65,7 @@ export function ProductProvider({ ...props }: { children: React.ReactNode }) {
             <ProductDetailDialog
                 isOpen={!!product}
                 onClose={() => setProduct(undefined)}
+                product={product}
             />
 
         </ProductContext.Provider>

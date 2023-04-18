@@ -17,8 +17,8 @@ export function ProductDetailDialog({ product, ...props }: ProductProps) {
                 onClose={props.onClose}
             >
                 <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-2 ">
-                    <ProductViewSlider />
-                    <ProductViewInfo />
+                    <ProductViewSlider productSlider={product?.images} />
+                    <ProductViewInfo productInfo={product} />
                 </div>
             </Dialog>
         </>
