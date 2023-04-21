@@ -2,8 +2,6 @@ import { LabelTitle } from '@/components/shared/common/label-title';
 import { ProductItem } from '@/components/shared/common/product/product-item';
 import { Spinner } from '@/components/shared/utilities/misc';
 import { useProductContext } from '@/lib/providers/product-provider';
-import { ProductType } from '@/lib/res/product';
-import productApi from '@/pages/api/product/productApi';
 import React, { useEffect, useState } from 'react';
 
 type Props = {};
