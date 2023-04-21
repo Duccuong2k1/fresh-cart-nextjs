@@ -38,18 +38,20 @@ export function ProductProvider({ ...props }: { children: React.ReactNode }) {
         fetchingProducts();
     }, []);
     useEffect(() => {
+        if (productId) {
 
-        const fetchingProducts = async () => {
-            try {
-                const response = await productApi.getOne(productId as string);
-                const productsData = response;
-                setProductDetail(productsData as any);
-            } catch (error) {
-                // Handle error
-                console.error(error);
-            }
-        };
-        fetchingProducts();
+            const fetchingProducts = async () => {
+                try {
+                    const response = await productApi.getOne(productId as string);
+                    const productsData = response;
+                    setProductDetail(productsData as any);
+                } catch (error) {
+                    // Handle error
+                    console.error(error);
+                }
+            };
+            fetchingProducts();
+        }
     }, [productId]);
     return (
         <ProductContext.Provider
