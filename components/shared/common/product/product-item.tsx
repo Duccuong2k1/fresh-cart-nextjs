@@ -1,10 +1,14 @@
+import { addToCart } from '@/app/cart/cartSlice';
+import { addProductToWish } from '@/app/cart/wishlist';
 import { useProductContext } from '@/lib/providers/product-provider';
+import { useToast } from '@/lib/providers/toast-provider';
 import { ProductType } from '@/lib/res/product';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { AiOutlineEye, AiOutlineHeart } from 'react-icons/ai';
 import { RiAddFill } from 'react-icons/ri';
 import { TbArrowsRightLeft } from 'react-icons/tb';
+import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import { Button } from '../../utilities/form/button';
@@ -14,11 +18,13 @@ type Props = {};
 
 export function ProductItem({ productItem, ...props }: { productItem?: ProductType }) {
     const { product, setProduct } = useProductContext()
-    const handleButtonClick = () => {
+    const dispatch = useDispatch()
+    const toast = useToast()
+
+    const handleButtonClick = (product: ProductType) => {
         // Show a toast notification
-        toast.success("Success!", {
-            position: toast.POSITION.TOP_RIGHT,
-        });
+        dispatch(addToCart(product))
+        toast.success("Add to cart success!")
     };
     return (
         <>
@@ -55,7 +61,7 @@ export function ProductItem({ productItem, ...props }: { productItem?: ProductTy
                         className={
                             "bg-green-600 text-white hover:bg-green-800 !py-1 lg:px-2 lg:text-sm text-xs pl-1 pr-1.5 "
                         }
-                        onClick={() => handleButtonClick()}
+                        onClick={() => handleButtonClick(productItem as ProductType)}
                     />
                 </div>
 
@@ -66,7 +72,12 @@ export function ProductItem({ productItem, ...props }: { productItem?: ProductTy
                     >
                         <AiOutlineEye />
                     </span>
-                    <span className="p-2 bg-white rounded-md shadow-md cursor-pointer hover:bg-green-500 hover:text-white ">
+                    <span className="p-2 bg-white rounded-md shadow-md cursor-pointer hover:bg-green-500 hover:text-white "
+                        onClick={() => {
+                            dispatch(addProductToWish(productItem))
+                            toast.success("Add product to wishlist success!")
+                        }}
+                    >
                         <AiOutlineHeart />
                     </span>
                     <span className="p-2 bg-white rounded-md shadow-md cursor-pointer hover:bg-green-500 hover:text-white ">

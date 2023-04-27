@@ -12,4 +12,5 @@ export interface ProductType {
     code?: string,
     options?: [string],
     status?: string,
+    quantity?: number,
 }

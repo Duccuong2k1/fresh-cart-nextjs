@@ -1,15 +1,22 @@
+import { addToCart } from '@/app/cart/cartSlice'
+import { addProductToWish, removeProductInWish } from '@/app/cart/wishlist'
 import { Breadcrumb } from '@/components/shared/common/breadcrumb'
 import { LabelTitle } from '@/components/shared/common/label-title'
 import { Button } from '@/components/shared/utilities/form/button'
+import { useToast } from '@/lib/providers/toast-provider'
+import { ProductType } from '@/lib/res/product'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
 import { RiDeleteBin6Line } from 'react-icons/ri'
+import { useDispatch, useSelector } from 'react-redux'
 
 type Props = {}
 
 export function WishlistPage({ }: Props) {
     const router = useRouter()
+    const wishlists = useSelector((state: any) => state.wishlists.wishLists)
+
     return (
         <div className='main-container'>
             <Breadcrumb
@@ -20,7 +27,7 @@ export function WishlistPage({ }: Props) {
                 ]}
             />
             <LabelTitle text='My WishList' className={"text-4xl mt-8"} />
-            <p className='text-gray-600'>there are {5} products in this wishlist </p>
+            <p className='text-gray-600'>There are {wishlists?.length || 0} products in this wishlist </p>
             <WishListTable />
 
         </div>
@@ -28,6 +35,7 @@ export function WishlistPage({ }: Props) {
 }
 
 function WishListTable() {
+    const wishlists = useSelector((state: any) => state.wishlists.wishLists)
     return (
         <>
 
@@ -57,9 +65,15 @@ function WishListTable() {
                     </thead>
                     <tbody>
                         {
-                            [1, 2, 3].map((product, index) => (
-                                <ProductItemRow key={index} />
-                            ))
+                            wishlists?.length > 0 ? wishlists.map((product: ProductType, index: number) => (
+                                <ProductItemRow key={index} product={product} />
+                            )) : (
+                                <tr className="border ">
+                                    <td className="py-10 font-semibold text-center text-gray-500 capitalize" colSpan={6}>
+                                        no products in wishlist
+                                    </td>
+                                </tr>
+                            )
                         }
 
                     </tbody>
@@ -70,33 +84,41 @@ function WishListTable() {
     )
 }
 
-function ProductItemRow({ product }: { product?: any }) {
+function ProductItemRow({ product }: { product?: ProductType }) {
+    const dispatch = useDispatch();
+    const toast = useToast()
+
     return (
         <tr className="bg-white border-b hover:bg-gray-50 ">
             <th scope="row" className="p-4 font-medium text-gray-900">
                 <img
                     className='object-cover w-16 h-16'
-                    src='/assets/imgs/product-img-11.jpg'
-                    alt='image product 1'
+                    src={product?.thumbnail}
+                    alt={product?.name}
                 />
             </th>
             <th scope="row" className="w-1/4 p-4 font-medium text-gray-900">
-                <Link href="/" className='font-semibold text-md'>
-                    macbook
+                <Link href={`/product?productId=${product?.id}`} className='font-semibold text-md'>
+                    {product?.name}
                 </Link>
-                <div className='mt-2 text-sm'>12 </div>
+                <div className='mt-2 text-sm text-ellipsis-2'>{product?.description} </div>
             </th>
             <td className="p-4 font-medium text-gray-600 ">
-                $55.00
+                ${product?.price}
             </td>
             <td className="p-4">
-                <span className='px-2 py-1 text-sm font-medium text-white capitalize bg-green-700 rounded-md '>in stock</span>
+                <span className='px-2 py-1 text-sm font-medium text-white capitalize bg-green-700 rounded-md '>{product?.status}</span>
             </td>
             <td className="p-4">
                 <Button
                     text="Add to cart"
                     className={"text-white bg-green-500 px-2 py-1 text-sm"}
-                    onClick={() => { }}
+                    onClick={() => {
+                        dispatch(addToCart(product))
+                        dispatch(removeProductInWish(product?.id))
+                        toast.success("Add to cart success!")
+
+                    }}
                 />
             </td>
             <td className="p-4 ">
@@ -104,7 +126,10 @@ function ProductItemRow({ product }: { product?: any }) {
                     icon={<RiDeleteBin6Line />}
                     iconClassName={"text-gray-600 hover:text-red-700 !p-0 hover:shadow-none"}
                     iconPosition='start'
-                    onClick={() => { }}
+                    onClick={() => {
+                        dispatch(removeProductInWish(product?.id))
+                        toast.success("Remove product success!")
+                    }}
 
                 />
             </td>

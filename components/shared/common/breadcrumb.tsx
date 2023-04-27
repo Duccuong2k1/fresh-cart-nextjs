@@ -14,11 +14,11 @@ export function Breadcrumb({ listPathName }: Props) {
           <>
             {
               listPathName?.map((pathName, index) => (
-                <>
+                <div key={index} className='flex gap-2'>
 
                   <span className='text-gray-500'>/</span>
                   <Link href={pathName?.href ?? "/"} className='font-medium text-green-700' >{pathName?.name}</Link>
-                </>
+                </div>
               ))
             }
           </>
