@@ -72,36 +72,42 @@ const CATEGORY_SWIPER: {
     {
       img: "/assets/imgs/categories/category-1.jpg",
       title: "atta & rice",
-      href: "/",
+      href: "/categories?tab=chicken",
     },
     {
       img: "/assets/imgs/categories/category-2.jpg",
       title: "chicken, meet & fish",
-      href: "/",
+      href: "/categories",
+
     },
     {
       img: "/assets/imgs/categories/category-3.jpg",
       title: "cleaning",
-      href: "/",
+      href: "/categories",
+
     },
     {
       img: "/assets/imgs/categories/category-4.jpg",
       title: "instant food",
-      href: "/",
+      href: "/categories",
+
     },
     {
       img: "/assets/imgs/categories/category-5.jpg",
       title: "dairy bread & eggs",
-      href: "/",
+      href: "/categories",
+
     },
     {
       img: "/assets/imgs/categories/category-6.jpg",
       title: "tea, coffee & drinks",
-      href: "/",
+      href: "/categories",
+
     },
     {
       img: "/assets/imgs/categories/category-7.jpg",
       title: "snack &munchies",
-      href: "/",
+      href: "/categories",
+
     },
   ]
