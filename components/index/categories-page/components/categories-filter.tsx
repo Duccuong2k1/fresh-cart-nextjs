@@ -5,7 +5,7 @@ import { HiArrowNarrowRight } from "react-icons/hi"
 
 export function CategoriesFilter() {
   return (
-    <div className='w-1/4'>
+    <div className='w-full md:w-1/4'>
       <form className="mt-4 ">
         <div className="ml-3 font-semibold">Categories</div>
         <ul role="list" className="px-1 py-3 font-medium text-gray-900">
@@ -75,14 +75,14 @@ export function CategoriesFilter() {
 }
 
 
-const CATEGORY_STORES = [
+export const CATEGORY_STORES = [
   { value: "E-Grocery", label: "E-Grocery" },
   { value: "DealShare", label: "DealShare" },
   { value: "DMart", label: "DMart" },
   { value: "BigBasket", label: "BigBasket" },
   { value: "Online Grocery", label: "Online Grocery" },
 ]
-const CATEGORY_LIST = [
+export const CATEGORY_LIST = [
   { value: "Totes", label: "Totes" },
   { value: "Backpacks", label: "Backpacks" },
   { value: "Snack", label: "Snack" },

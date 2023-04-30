@@ -1,19 +1,24 @@
-import { Spinner } from "@/components/shared/utilities/misc";
-import { useProductContext } from "@/lib/providers/product-provider";
-import React, { useState } from "react";
-import { BsGrid, BsGrid3X3Gap } from "react-icons/bs";
-import { RiListCheck } from "react-icons/ri";
+import { ProductItem } from '@/components/shared/common/product/product-item';
+import { Button } from '@/components/shared/utilities/form/button';
+import { Spinner } from '@/components/shared/utilities/misc';
+import { useScreen } from '@/lib/hooks/useScreen';
+import { useProductContext } from '@/lib/providers/product-provider';
+import React, { useState } from 'react';
+import { BsGrid, BsGrid3X3Gap } from 'react-icons/bs';
+import { RiFilter2Line, RiListCheck } from 'react-icons/ri';
 
-import { CategoryProductItem } from "./category-product-item";
-import { ProductItem } from "@/components/shared/common/product/product-item";
+import { CategoryProductItem } from './category-product-item';
+import { useCategoriesFilterContext } from '../provider/categories-provider';
 
 type Props = {};
 
 export function CategoriesProductList({ }: Props) {
     const { products } = useProductContext();
+    const isMd = useScreen("md")
     const [typeLayout, setTypeLayout] = useState<
         "GRID" | "LIST" | "GRID3X" | string
     >("GRID");
+    const { setOpenCategoryFilter } = useCategoriesFilterContext()
     return (
         <div className="flex-1">
             <div className="px-5 py-8 text-3xl font-semibold bg-gray-100 rounded-md">
@@ -38,26 +43,40 @@ export function CategoriesProductList({ }: Props) {
                             {type.icon}
                         </span>
                     ))}
+                    {
+                        isMd ? (
 
-                    <select
-                        name=""
-                        id=""
-                        defaultValue={10}
-                        className="px-3 py-2 border rounded focus:border-green-500"
-                    >
-                        <option value="10">sort: 10</option>
-                        <option value="">10</option>
-                        <option value="">20</option>
-                        <option value="">30</option>
-                    </select>
+                            <select
+                                name=""
+                                id=""
+                                defaultValue={10}
+                                className="px-3 py-2 border rounded focus:border-green-500"
+                            >
+                                <option value="10">sort: 10</option>
+                                <option value="">10</option>
+                                <option value="">20</option>
+                                <option value="">30</option>
+                            </select>
+                        ) : (
+
+                            <Button
+                                icon={<RiFilter2Line />}
+                                iconClassName={""}
+                                iconPosition="start"
+                                className={"shadow-none"}
+                                onClick={() => setOpenCategoryFilter?.(true)}
+                            />
+                        )
+                    }
+
                 </div>
             </div>
             <div
                 className={`grid gap-5 my-8  ${typeLayout === "LIST"
-                        ? "grid-rows-1"
-                        : typeLayout === "GRID3X"
-                            ? "grid-cols-3"
-                            : "grid-cols-4"
+                    ? "grid-rows-1"
+                    : typeLayout === "GRID3X"
+                        ? "lg:grid-cols-3 grid-cols-2"
+                        : "lg:grid-cols-4 grid-cols-2"
                     }`}
             >
                 {!products?.length ? (
